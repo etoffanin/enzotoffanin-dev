@@ -101,6 +101,10 @@ a {
 
 .logo span {
   color: #6c63ff;
+
+  text-shadow:
+    0 0 8px rgba(108, 99, 255, 0.55),
+    0 0 18px rgba(108, 99, 255, 0.25);
 }
 
 /* NAV */
@@ -156,6 +160,10 @@ a {
 
 .hero h1 span {
   color: #6c63ff;
+
+   text-shadow:
+    0 0 10px rgba(108, 99, 255, 0.55),
+    0 0 22px rgba(108, 99, 255, 0.20);
 }
 
 .hero h2 {
@@ -398,6 +406,9 @@ code {
   font-size: 1.5rem;
 
   margin-bottom: 0.5rem;
+
+  text-shadow:
+  0 0 10px rgba(108, 99, 255, 0.35);
 }
 
 .stat-card p {
@@ -425,6 +436,9 @@ code {
   font-weight: bold;
 
   margin-bottom: 0.8rem;
+
+  text-shadow:
+  0 0 8px rgba(127, 123, 255, 0.35);
 }
 
 .section-header h2 {
@@ -599,6 +613,9 @@ code {
   color: #7f7bff;
 
   margin-bottom: 1rem;
+
+  text-shadow:
+  0 0 8px rgba(108, 99, 255, 0.30);
 }
 
 .side-card p {
