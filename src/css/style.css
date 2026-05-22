@@ -659,16 +659,107 @@ code {
 
 @media (max-width: 768px) {
 
+   .header {
+    height: 70px;
+    padding: 0 6%;
+  }
+
+    .logo {
+    font-size: 1.15rem;
+  }
+
   .nav {
     display: none;
   }
 
+   .hero {
+    min-height: auto;
+    padding: 110px 6% 50px;
+    gap: 3rem;
+  }
+
+   .hero-content {
+    width: 100%;
+    text-align: left;
+  }
+
+    .eyebrow {
+    font-size: 0.9rem;
+  }
+
+
   .hero h1 {
     font-size: 2.8rem;
+  }
+
+   .hero h2 {
+    font-size: 1.15rem;
+  }
+
+    .hero p {
+    font-size: 0.95rem;
+  }
+
+   .hero-actions {
+    flex-direction: column;
+    width: 100%;
   }
 
   .hero-stats {
     flex-direction: column;
   }
 
+    .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mini-terminal {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .terminal-line {
+    font-size: 0.9rem;
+  }
+
+   .hero-side {
+    width: 100%;
+  }
+
+    .code-window {
+    width: 100%;
+  }
+
+  code {
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+
+
+  .projects-section,
+  .about-section {
+    padding: 60px 6%;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+   .project-image {
+    height: 180px;
+  }
+
+   .project-content {
+    padding: 1.2rem;
+  }
+
+  .about-card,
+  .side-card {
+    padding: 1.5rem;
+  }
+
+   .about-card h3 {
+    font-size: 1.5rem;
+  }
 }
