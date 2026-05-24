@@ -765,4 +765,89 @@ code {
    .about-card h3 {
     font-size: 1.5rem;
   }
+
+  .apollo-bot {
+  right: 16px;
+  bottom: 16px;
+}
+
+.apollo-img {
+  width: 70px;
+}
+
+.apollo-speech {
+  max-width: 170px;
+  font-size: 0.75rem;
+}
+}
+
+/* APOLLO */
+
+.apollo-bot {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.apollo-img {
+  width: 95px;
+  height: auto;
+
+  filter: drop-shadow(0 0 14px rgba(108, 99, 255, 0.35));
+
+  animation: apolloFloat 3s ease-in-out infinite;
+}
+
+.apollo-speech {
+  max-width: 220px;
+
+  padding: 12px 14px;
+
+  background: #101522;
+  color: #d1d5db;
+
+  border: 2px solid rgba(127, 123, 255, 0.6);
+  border-radius: 8px;
+
+  font-size: 0.85rem;
+  line-height: 1.4;
+
+  box-shadow: 0 0 18px rgba(108, 99, 255, 0.2);
+
+  position: relative;
+}
+
+.apollo-speech::after {
+  content: "";
+
+  position: absolute;
+  right: -10px;
+  top: 22px;
+
+  width: 14px;
+  height: 14px;
+
+  background: #101522;
+
+  border-right: 2px solid rgba(127, 123, 255, 0.6);
+  border-bottom: 2px solid rgba(127, 123, 255, 0.6);
+
+  transform: rotate(-45deg);
+}
+
+@keyframes apolloFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
