@@ -127,7 +127,15 @@ apolloBot.addEventListener("click", () => {
 
 /* DIGITAÇÃO */
 
+let typingInterval;
+
 function typeApolloMessage(message) {
+
+  // LIMPA DIGITAÇÃO ANTIGA
+
+  clearInterval(typingInterval);
+
+  // LIMPA TEXTO
 
   apolloMessage.textContent = "";
 
@@ -135,15 +143,19 @@ function typeApolloMessage(message) {
 
   const speed = 35;
 
-  const typing = setInterval(() => {
+  // NOVA DIGITAÇÃO
+
+  typingInterval = setInterval(() => {
 
     apolloMessage.textContent += message.charAt(index);
 
     index++;
 
+    // FINALIZA
+
     if (index >= message.length) {
 
-      clearInterval(typing);
+      clearInterval(typingInterval);
 
     }
 
