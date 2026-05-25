@@ -36,7 +36,7 @@ const commonMessages = [
   "Bananas são levemente radioativas",
   "O Apollo descobriu que humanos passam anos olhando para telas brilhantes",
   "O Apollo ainda tenta entender por que humanos gostam de filmes tristes",
-  
+
 
 ];
 
