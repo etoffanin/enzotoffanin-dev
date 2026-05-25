@@ -80,6 +80,10 @@ let usedMessages = [];
 /* CLIQUE APOLLO */
 
 apolloBot.addEventListener("click", () => {
+apolloBot.classList.add("apollo-clicked");
+ setTimeout(() => {
+  apolloBot.classList.remove("apollo-clicked");
+}, 450);
 
   const allMessages = [
     ...commonMessages,

@@ -846,6 +846,50 @@ code {
   transform: rotate(-45deg);
 }
 
+/* APOLLO CLICK FEEDBACK */
+
+.apollo-bot.apollo-clicked .apollo-img {
+  animation:
+    apolloFloat 3s ease-in-out infinite,
+    apolloEyeBlink 0.45s ease;
+}
+
+.apollo-bot.apollo-clicked .apollo-speech {
+  animation: speechShake 0.35s ease;
+}
+
+@keyframes apolloEyeBlink {
+  0%, 100% {
+    filter:
+      brightness(1)
+      drop-shadow(0 0 14px rgba(108, 99, 255, 0.35));
+  }
+
+  50% {
+    filter:
+      brightness(0.75)
+      drop-shadow(0 0 6px rgba(108, 99, 255, 0.15));
+  }
+}
+
+@keyframes speechShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
 @keyframes apolloFloat {
   0%, 100% {
     transform: translateY(0);
