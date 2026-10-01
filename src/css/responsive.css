@@ -115,7 +115,7 @@
     font-size: clamp(2.7rem, 11vw, 4.8rem);
   }
 
-  .hero h2 {
+  .hero-subtitle {
     font-size: 1.15rem;
   }
 
@@ -159,6 +159,10 @@
   .projects-section,
   .about-section {
     padding: 60px 6%;
+  }
+
+  .footer {
+    padding: 2rem 6%;
   }
 
   .projects-section .section-header h2,
@@ -227,7 +231,7 @@
     font-size: clamp(2.25rem, 10vw, 3.4rem);
   }
 
-  .hero h2 {
+  .hero-subtitle {
     font-size: 1.05rem;
   }
 

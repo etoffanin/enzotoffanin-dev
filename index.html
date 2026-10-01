@@ -4,7 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>enzotoffanin.dev</title>
+  <title>Enzo Toffanin | Portfólio de desenvolvimento web</title>
+  <meta
+    name="description"
+    content="Portfólio de Enzo Toffanin, estudante de Engenharia de Software. Conheça meus projetos de desenvolvimento web e o que aprendo ao construí-los."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Enzo Toffanin | Portfólio de desenvolvimento web" />
+  <meta
+    property="og:description"
+    content="Projetos de desenvolvimento web e aprendizados de Enzo Toffanin, estudante de Engenharia de Software."
+  />
 
   <link
    rel="icon"
@@ -37,8 +47,10 @@
   <link rel="stylesheet" href="./src/css/responsive.css" />
 </head>
 <body>
-  <div class="background-glow"></div>
-  <div class="lightning-pattern"></div>
+  <a class="skip-link" href="#mainContent">Pular para o conteúdo</a>
+
+  <div class="background-glow" aria-hidden="true"></div>
+  <div class="lightning-pattern" aria-hidden="true"></div>
 
   <header class="header">
     <a href="#home" class="logo">EnzoToffanin<span>.dev</span></a>
@@ -56,14 +68,14 @@
     </nav>
   </header>
 
-  <main>
+  <main id="mainContent" tabindex="-1">
     <section id="home" class="hero">
       <div class="hero-content">
         <p class="eyebrow">/ Apresentação</p>
 
         <h1>Enzo <span>Toffanin</span></h1>
 
-        <h2>Estudante de Engenharia de Software.</h2>
+        <p class="hero-subtitle">Estudante de Engenharia de Software.</p>
 
         <p class="hero-description">
           Desenvolvo interfaces e ferramentas web enquanto transformo estudos
@@ -80,7 +92,7 @@
             href="https://github.com/etoffanin"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub de Enzo Toffanin"
+            aria-label="GitHub de Enzo Toffanin, abre em nova aba"
           >
             <i class="fab fa-github" aria-hidden="true"></i>
             <span>GitHub</span>
@@ -89,7 +101,7 @@
             href="https://linkedin.com/in/enzo-toffanin-92744b321/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn de Enzo Toffanin"
+            aria-label="LinkedIn de Enzo Toffanin, abre em nova aba"
           >
             <i class="fab fa-linkedin" aria-hidden="true"></i>
             <span>LinkedIn</span>
@@ -98,7 +110,7 @@
             href="https://instagram.com/thunderdodge_"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram de Enzo Toffanin"
+            aria-label="Instagram de Enzo Toffanin, abre em nova aba"
           >
             <i class="fab fa-instagram" aria-hidden="true"></i>
             <span>Instagram</span>
@@ -107,7 +119,7 @@
             href="https://mail.google.com/mail/?view=cm&fs=1&to=toffanine1@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Enviar e-mail para Enzo Toffanin"
+            aria-label="Enviar e-mail para Enzo Toffanin, abre em nova aba"
           >
             <i class="fas fa-envelope" aria-hidden="true"></i>
             <span>E-mail</span>
@@ -145,7 +157,7 @@
         <dl class="hero-stats">
           <div>
             <dt>Projetos</dt>
-            <dd id="projectCount">2</dd>
+            <dd id="projectCount">—</dd>
           </div>
           <div>
             <dt>Tecnologias</dt>
@@ -156,26 +168,26 @@
     </section>
 
     <section id="projects" class="projects-section">
-      <div class="section-header">
+      <header class="section-header">
         <p class="section-label">/ Projetos</p>
         <h2>Projetos em destaque</h2>
         <p>
           Cada projeto registra uma etapa do meu aprendizado: da interface ao
           uso de APIs e recursos do navegador.
         </p>
-      </div>
+      </header>
 
       <div class="projects-grid"></div>
     </section>
 
     <section id="about" class="about-section">
-      <div class="section-header">
+      <header class="section-header">
         <p class="section-label">02 / Sobre mim</p>
         <h2>Aprendendo na prática</h2>
         <p>
           Uso cada projeto para entender melhor a web e melhorar minhas escolhas.
         </p>
-      </div>
+      </header>
 
       <div class="about-container">
         <article class="about-story">
@@ -219,6 +231,11 @@
     </section>
   </main>
 
+  <footer class="footer">
+    <p>Enzo Toffanin / Portfólio pessoal</p>
+    <a href="#home">Voltar ao início</a>
+  </footer>
+
   <button
     class="apollo-bot"
     id="apolloBot"
@@ -232,6 +249,7 @@
     </span>
     <img src="./assets/images/apollo.png" alt="" class="apollo-img" />
   </button>
+  <span class="visually-hidden" id="apolloAnnouncement" role="status"></span>
 
   <script src="./src/js/projects.js"></script>
   <script src="./src/js/apollo.js"></script>

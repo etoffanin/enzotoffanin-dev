@@ -1,7 +1,8 @@
-function createProjectLink(url, label) {
+function createProjectLink(url, label, accessibleLabel) {
   const link = document.createElement("a");
   link.href = url;
   link.textContent = label;
+  link.setAttribute("aria-label", accessibleLabel);
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   return link;
@@ -17,7 +18,7 @@ function createProjectCard(project, index) {
 
   const image = document.createElement("img");
   image.src = project.image;
-  image.alt = `Imagem do projeto ${project.name}`;
+  image.alt = project.imageAlt || `Tela do projeto ${project.name}`;
   image.loading = "lazy";
   imageContainer.appendChild(image);
 
@@ -52,10 +53,18 @@ function createProjectCard(project, index) {
   const links = document.createElement("div");
   links.className = "project-links";
   if (project.demo) {
-    links.appendChild(createProjectLink(project.demo, "Ver projeto"));
+    links.appendChild(createProjectLink(
+      project.demo,
+      "Ver projeto",
+      `Ver projeto ${project.name} em nova aba`
+    ));
   }
   if (project.github) {
-    links.appendChild(createProjectLink(project.github, "GitHub"));
+    links.appendChild(createProjectLink(
+      project.github,
+      "GitHub",
+      `GitHub de ${project.name}, abre em nova aba`
+    ));
   }
 
   content.append(number, status, title, description, tags, links);

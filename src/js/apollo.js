@@ -1,5 +1,6 @@
 const apolloBot = document.getElementById("apolloBot");
 const apolloMessage = document.getElementById("apolloMessage");
+const apolloAnnouncement = document.getElementById("apolloAnnouncement");
 
 let commonMessages = [];
 let rareMessages = [];
@@ -78,6 +79,7 @@ function handleApolloClick() {
 function typeApolloMessage(message) {
   clearInterval(typingInterval);
   apolloMessage.textContent = "";
+  apolloAnnouncement.textContent = "";
 
   let index = 0;
   const speed = 35;
@@ -88,6 +90,7 @@ function typeApolloMessage(message) {
 
     if (index >= message.length) {
       clearInterval(typingInterval);
+      apolloAnnouncement.textContent = message;
     }
   }, speed);
 }

@@ -144,11 +144,6 @@
     transition: none !important;
   }
 
-  .lightning-pattern {
-    animation: none;
-    will-change: auto;
-  }
-
   .reveal {
     opacity: 1;
     transform: none;
