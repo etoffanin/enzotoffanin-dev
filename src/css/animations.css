@@ -1,0 +1,99 @@
+/* FUNDO */
+
+.lightning-pattern {
+  animation: lightningMove 8s linear infinite;
+  will-change: transform;
+}
+
+@keyframes lightningMove {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-150px, 150px);
+  }
+}
+
+/* TRANSIÇÕES DE HOVER */
+
+.nav a,
+.btn,
+.social-links a,
+.stat-card,
+.project-card {
+  transition: 0.3s ease;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+}
+
+.social-links a:hover,
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+}
+
+/* APOLLO */
+
+.apollo-img {
+  animation: apolloFloat 3s ease-in-out infinite;
+}
+
+/* FEEDBACK DO CLIQUE */
+
+.apollo-bot.apollo-clicked .apollo-img {
+  animation:
+    apolloFloat 3s ease-in-out infinite,
+    apolloEyeBlink 0.45s ease;
+}
+
+.apollo-bot.apollo-clicked .apollo-speech {
+  animation: speechShake 0.35s ease;
+}
+
+@keyframes apolloEyeBlink {
+  0%, 100% {
+    filter:
+      brightness(1)
+      drop-shadow(0 0 14px rgba(108, 99, 255, 0.35));
+  }
+
+  50% {
+    filter:
+      brightness(0.75)
+      drop-shadow(0 0 6px rgba(108, 99, 255, 0.15));
+  }
+}
+
+@keyframes speechShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-1px);
+  }
+}
+
+@keyframes apolloFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
