@@ -131,7 +131,7 @@
 
         <div class="hero-stats">
           <div class="stat-card">
-            <h3>2</h3>
+            <h3 id="projectCount">2</h3>
             <p>Projetos</p>
           </div>
 
@@ -158,61 +158,7 @@
         </p>
       </div>
 
-      <div class="projects-grid">
-        <article class="project-card">
-          <div class="project-image">
-            <img src="./assets/images/clima-pro.png" alt="Imagem do projeto Clima Pro" />
-          </div>
-
-          <div class="project-content">
-            <span class="project-status">Publicado</span>
-            <h3>Clima Pro</h3>
-            <p>
-              Aplicação web de clima com busca por cidade, geolocalização
-              e interface responsiva.
-            </p>
-
-            <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>API</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://etoffanin.github.io/Clima-Pro/" target="_blank">Ver projeto</a>
-              <a href="https://github.com/etoffanin/Clima-Pro" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-image">
-            <img src="./assets/images/operion.png" alt="Imagem do projeto Operion" />
-          </div>
-
-          <div class="project-content">
-            <span class="project-status progress">Em desenvolvimento</span>
-            <h3>Operion</h3>
-            <p>
-              Sistema web experimental para apoio em registro visual
-              de processos industriais.
-            </p>
-
-            <div class="project-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>MediaRecorder</span>
-            </div>
-
-            <div class="project-links">
-              <a href="https://etoffanin.github.io/Operion/frontend/" target="_blank">Ver projeto</a>
-              <a href="https://github.com/etoffanin/Operion" target="_blank">GitHub</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div class="projects-grid"></div>
     </section>
 
     <section id="about" class="about-section">
@@ -269,13 +215,14 @@
 
           <div class="side-card">
             <h4>Projetos</h4>
-            <p>Clima Pro & Operion</p>
+            <p>Projetos web autorais</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <script src="./src/js/projects.js"></script>
   <script src="./src/js/main.js"></script>
 </body>
 </html>

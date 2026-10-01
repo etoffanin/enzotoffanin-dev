@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Clima Pro",
+    "slug": "clima-pro",
+    "description": "Aplicação web de clima com busca por cidade, geolocalização e interface responsiva.",
+    "image": "./assets/images/clima-pro.png",
+    "status": "Publicado",
+    "technologies": ["HTML", "CSS", "JavaScript", "API"],
+    "demo": "https://etoffanin.github.io/Clima-Pro/",
+    "github": "https://github.com/etoffanin/Clima-Pro",
+    "featured": true
+  },
+  {
+    "name": "Operion",
+    "slug": "operion",
+    "description": "Sistema web experimental para apoio em registro visual de processos industriais.",
+    "image": "./assets/images/operion.png",
+    "status": "Em desenvolvimento",
+    "technologies": ["HTML", "CSS", "JavaScript", "MediaRecorder"],
+    "demo": "https://etoffanin.github.io/Operion/frontend/",
+    "github": "https://github.com/etoffanin/Operion",
+    "featured": true
+  }
+]

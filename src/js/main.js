@@ -195,3 +195,5 @@ function typeApolloMessage(message) {
   }, speed);
 
 }
+
+loadProjects();
