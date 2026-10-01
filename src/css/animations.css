@@ -20,7 +20,6 @@
 .nav a,
 .btn,
 .social-links a,
-.stat-card,
 .project-card {
   transition: 0.3s ease;
 }
@@ -29,8 +28,7 @@
   transform: translateY(-3px);
 }
 
-.social-links a:hover,
-.stat-card:hover {
+.social-links a:hover {
   transform: translateY(-4px);
 }
 

@@ -43,25 +43,25 @@
   <header class="header">
     <a href="#home" class="logo">EnzoToffanin<span>.dev</span></a>
 
-    <nav class="nav">
-      <a href="#home">Início</a>
-      <a href="#projects">Projetos</a>
-      <a href="#about">Sobre</a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#home"><span aria-hidden="true"></span>Início</a>
+      <a href="#projects"><span aria-hidden="true"></span>Projetos</a>
+      <a href="#about"><span aria-hidden="true"></span>Sobre</a>
     </nav>
   </header>
 
   <main>
     <section id="home" class="hero">
       <div class="hero-content">
-        <p class="eyebrow">👋 Olá, eu sou</p>
+        <p class="eyebrow">00 / Apresentação</p>
 
         <h1>Enzo <span>Toffanin</span></h1>
 
-        <h2>Desenvolvedor Web em formação.</h2>
+        <h2>Estudante de Engenharia de Software.</h2>
 
-        <p>
-          Criando soluções web modernas, com foco em interfaces intuitivas,
-          performance e boas experiências.
+        <p class="hero-description">
+          Desenvolvo interfaces e ferramentas web enquanto transformo estudos
+          em projetos reais. Aqui compartilho o que construo e aprendo pelo caminho.
         </p>
 
         <div class="hero-actions">
@@ -69,37 +69,40 @@
           <a href="#about" class="btn secondary">Sobre mim</a>
         </div>
 
-        <div class="social-links">
-
-         <a
-          href="https://github.com/etoffanin"
-          target="_blank"
-         > 
-          <i class="fab fa-github"></i>
-         </a>
-
-         <a
-           href="https://linkedin.com/in/enzo-toffanin-92744b321/"
-           target="_blank"
-          >
-           <i class="fab fa-linkedin"></i>
-          </a>
-
+        <nav class="social-links" aria-label="Redes sociais">
           <a
-           href="https://instagram.com/thunderdodge_"
-           target="_blank"
+            href="https://github.com/etoffanin"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub de Enzo Toffanin"
           >
-           <i class="fab fa-instagram"></i>
+            <i class="fab fa-github" aria-hidden="true"></i>
           </a>
-
           <a
-           href="https://mail.google.com/mail/?view=cm&fs=1&to=toffanine1@gmail.com"
-           target="_blank"
+            href="https://linkedin.com/in/enzo-toffanin-92744b321/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn de Enzo Toffanin"
           >
-           <i class="fas fa-envelope"></i>
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
           </a>
-
-        </div>
+          <a
+            href="https://instagram.com/thunderdodge_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Enzo Toffanin"
+          >
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=toffanine1@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Enviar e-mail para Enzo Toffanin"
+          >
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+        </nav>
 
         <div class="mini-terminal">
           <span class="terminal-title">enzo@dev:~$ perfil.txt</span>
@@ -113,38 +116,32 @@
       <div class="hero-side">
         <div class="code-window">
           <div class="window-top">
-            <span></span>
-            <span></span>
-            <span></span>
-            <p>enzo.dev</p>
+            <span class="window-tab">sobre-mim.js</span>
+            <span class="window-language">JS / PERFIL</span>
           </div>
 
           <pre><code><span class="keyword">const</span> enzo <span class="operator">=</span> {
   <span class="property">nome</span>: <span class="string">"Enzo Toffanin"</span>,
   <span class="property">curso</span>: <span class="string">"Engenharia de Software"</span>,
   <span class="property">foco</span>: <span class="string">"Desenvolvimento Web"</span>,
-  <span class="property">skills</span>: [<span class="string">"HTML"</span>, <span class="string">"CSS"</span>, <span class="string">"JavaScript"</span>, <span class="string">"Git"</span>]
+  <span class="property">skills</span>: [
+    <span class="string">"HTML"</span>, <span class="string">"CSS"</span>, <span class="string">"JavaScript"</span>, <span class="string">"Git"</span>
+  ]
 };
 
-<span class="function">console</span>.<span class="method">log</span>(<span class="string">"Construindo o futuro! 🚀"</span>);</code></pre>
+<span class="function">console</span>.<span class="method">log</span>(<span class="string">"Aprender, testar, construir."</span>);</code></pre>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat-card">
-            <h3 id="projectCount">2</h3>
-            <p>Projetos</p>
+        <dl class="hero-stats">
+          <div>
+            <dt>Projetos</dt>
+            <dd id="projectCount">2</dd>
           </div>
-
-          <div class="stat-card">
-            <h3>4+</h3>
-            <p>Tecnologias</p>
+          <div>
+            <dt>Tecnologias</dt>
+            <dd>4+</dd>
           </div>
-
-          <div class="stat-card">
-            <h3>Sempre</h3>
-            <p>Evoluindo</p>
-          </div>
-        </div>
+        </dl>
       </div>
     </section>
 

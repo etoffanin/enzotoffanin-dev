@@ -2,22 +2,23 @@
 
 @media (max-width: 1100px) {
   .hero {
-    flex-direction: column;
-    text-align: center;
+    max-width: 780px;
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
   .hero-actions {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .mini-terminal {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero-side {
     width: 100%;
-    max-width: 650px;
+    margin-top: 0;
   }
 }
 
@@ -34,7 +35,7 @@
 
 @media (max-width: 768px) {
   .social-links {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .header {
@@ -58,17 +59,15 @@
 
   .hero-content {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-left: 1rem;
   }
 
   .eyebrow {
-    font-size: 0.9rem;
+    font-size: 0.72rem;
   }
 
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: clamp(2.7rem, 11vw, 4.8rem);
   }
 
   .hero h2 {
@@ -84,10 +83,6 @@
     width: 100%;
   }
 
-  .hero-stats {
-    flex-direction: column;
-  }
-
   .btn {
     width: 100%;
     text-align: center;
@@ -95,16 +90,20 @@
 
   .mini-terminal {
     max-width: 100%;
-    padding: 20px;
+    padding-top: 20px;
   }
 
   .terminal-line {
     font-size: 0.9rem;
   }
 
-  code {
+  .code-window code {
     font-size: 0.78rem;
     line-height: 1.7;
+  }
+
+  .code-window pre {
+    padding: 18px;
   }
 
   .projects-section,
