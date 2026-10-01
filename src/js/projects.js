@@ -7,7 +7,7 @@ function createProjectLink(url, label) {
   return link;
 }
 
-function createProjectCard(project) {
+function createProjectCard(project, index) {
   const card = document.createElement("article");
   card.className = "project-card";
   card.id = project.slug;
@@ -23,6 +23,10 @@ function createProjectCard(project) {
 
   const content = document.createElement("div");
   content.className = "project-content";
+
+  const number = document.createElement("span");
+  number.className = "project-number";
+  number.textContent = `${String(index + 1).padStart(2, "0")} / PROJETO`;
 
   const status = document.createElement("span");
   status.className = "project-status";
@@ -54,7 +58,7 @@ function createProjectCard(project) {
     links.appendChild(createProjectLink(project.github, "GitHub"));
   }
 
-  content.append(status, title, description, tags, links);
+  content.append(number, status, title, description, tags, links);
   card.append(imageContainer, content);
   return card;
 }
@@ -71,8 +75,8 @@ async function loadProjects() {
     const projects = await response.json();
     const featuredProjects = projects.filter((project) => project.featured !== false);
 
-    featuredProjects.forEach((project) => {
-      container.appendChild(createProjectCard(project));
+    featuredProjects.forEach((project, index) => {
+      container.appendChild(createProjectCard(project, index));
     });
     document.getElementById("projectCount").textContent = featuredProjects.length;
   } catch (error) {

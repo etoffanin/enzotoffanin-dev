@@ -25,9 +25,13 @@
 /* Até 900px */
 
 @media (max-width: 900px) {
-  .projects-grid,
   .about-container {
     grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
@@ -115,12 +119,12 @@
     font-size: 2rem;
   }
 
-  .project-image {
-    height: 180px;
+  .projects-section .section-header h2 {
+    font-size: clamp(2.4rem, 8vw, 3.5rem);
   }
 
-  .project-content {
-    padding: 1.2rem;
+  .project-card {
+    padding-top: 1.5rem;
   }
 
   .about-card,

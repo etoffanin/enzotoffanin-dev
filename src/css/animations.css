@@ -20,7 +20,8 @@
 .nav a,
 .btn,
 .social-links a,
-.project-card {
+.project-image,
+.project-links a {
   transition: 0.3s ease;
 }
 
@@ -30,10 +31,6 @@
 
 .social-links a:hover {
   transform: translateY(-4px);
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
 }
 
 /* APOLLO */
