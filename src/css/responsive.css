@@ -201,6 +201,7 @@
   .apollo-speech {
     min-width: 0;
     max-width: 220px;
+    margin-bottom: 17px;
     overflow-wrap: anywhere;
     font-size: 0.75rem;
   }
@@ -293,6 +294,7 @@
   }
 
   .apollo-speech {
+    margin-bottom: 9px;
     padding: 10px 12px;
   }
 }

@@ -15,22 +15,62 @@
   }
 }
 
-/* TRANSIÇÕES DE HOVER */
+/* INTERAÇÕES */
 
 .nav a,
 .btn,
 .social-links a,
 .project-image,
 .project-links a {
-  transition: 0.3s ease;
+  transition: color 0.25s ease, background-color 0.25s ease,
+    border-color 0.25s ease, transform 0.25s ease;
 }
 
-.primary:hover {
-  transform: translateY(-3px);
+.nav a {
+  position: relative;
 }
 
-.social-links a:hover {
+.nav a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  background: var(--purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav a:hover::after,
+.nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.btn:hover,
+.btn:focus-visible,
+.social-links a:hover,
+.social-links a:focus-visible {
+  transform: translateY(-2px);
+}
+
+.project-card:hover .project-image,
+.project-card:focus-within .project-image {
   transform: translateY(-4px);
+}
+
+/* ENTRADA DAS SEÇÕES */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 /* APOLLO */
@@ -90,5 +130,27 @@
 
   50% {
     transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
+  .lightning-pattern {
+    animation: none;
+    will-change: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

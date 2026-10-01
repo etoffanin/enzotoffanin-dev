@@ -773,6 +773,7 @@ a {
 .apollo-speech {
   display: block;
   max-width: 220px;
+  margin-bottom: 30px;
   padding: 12px 14px;
   background: #101727;
   color: #d1d5db;
