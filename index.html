@@ -160,64 +160,68 @@
 
     <section id="about" class="about-section">
       <div class="section-header">
-        <p class="section-label">Sobre mim</p>
-        <h2>Minha jornada</h2>
+        <p class="section-label">02 / Sobre mim</p>
+        <h2>Aprendendo na prática</h2>
         <p>
-          Um pouco sobre minha evolução, objetivos e interesses na área de tecnologia.
+          Uso cada projeto para entender melhor a web e melhorar minhas escolhas.
         </p>
       </div>
 
-      <div class="apollo-bot" id="apolloBot">
-       <div class="apollo-speech" id="apolloMessage">
-         Olá! Eu sou o Apollo.
-       </div>
-        <img src="./assets/images/apollo.png" alt="Apollo" class="apollo-img">
-      </div>
-
       <div class="about-container">
-        <div class="about-card">
-          <h3>Olá! Eu sou <span>Enzo Toffanin</span></h3>
+        <article class="about-story">
+          <h3>Olá, sou <span>Enzo Toffanin.</span></h3>
 
           <p>
-            Sou apaixonado por tecnologia e atualmente estou focado em evoluir
-            como desenvolvedor web e futuro engenheiro de software
+            Estudo Engenharia de Software e desenvolvo para a web. Gosto de
+            entender como uma ideia se transforma em uma interface clara e útil.
           </p>
 
           <p>
-            Tenho interesse em interfaces modernas, automações, dashboards
-            e soluções criativas voltadas para projetos reais
+            Meus projetos são a forma que encontrei de praticar: experimento
+            com JavaScript, APIs e recursos do navegador enquanto aprendo a
+            organizar melhor o código.
           </p>
 
           <p>
-            Acredito que construir projetos reais é uma das melhores formas
-            evoluir como desenvolvedor e transformar conhecimento em experiência
+            Este portfólio também faz parte desse processo. Ele muda conforme
+            reviso decisões, descubro soluções mais simples e ganho experiência.
           </p>
-          
-          <p>
-            Atualmente utilizo meus projetos pessoais como forma de aprendizado,
-            experimentação e desenvolvimento de experiência prática em programação.
-          </p>
-        </div>
+        </article>
 
-        <div class="about-side">
-          <div class="side-card">
-            <h4>Foco Atual</h4>
-            <p>Frontend & JavaScript</p>
-          </div>
-
-          <div class="side-card">
-            <h4>Objetivo</h4>
-            <p>Evoluir como Software Engineer</p>
-          </div>
-
-          <div class="side-card">
-            <h4>Projetos</h4>
-            <p>Projetos web autorais</p>
-          </div>
-        </div>
+        <aside class="about-side" aria-label="Resumo do meu momento atual">
+          <h3>Em foco</h3>
+          <dl>
+            <div>
+              <dt>01 / Estudo</dt>
+              <dd>Engenharia de Software</dd>
+            </div>
+            <div>
+              <dt>02 / Prática</dt>
+              <dd>Frontend e JavaScript</dd>
+            </div>
+            <div>
+              <dt>03 / Processo</dt>
+              <dd>Aprender, construir, revisar</dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </section>
   </main>
+
+  <button
+    class="apollo-bot"
+    id="apolloBot"
+    type="button"
+    aria-label="Conversar com Apollo"
+    aria-describedby="apolloMessage"
+  >
+    <span class="apollo-speech">
+      <span class="apollo-label" aria-hidden="true">APOLLO / ONLINE</span>
+      <span id="apolloMessage">Olá! Eu sou o Apollo.</span>
+    </span>
+    <img src="./assets/images/apollo.png" alt="" class="apollo-img" />
+  </button>
 
   <script src="./src/js/projects.js"></script>
   <script src="./src/js/apollo.js"></script>

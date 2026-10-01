@@ -484,18 +484,16 @@ a {
   color: var(--text-muted);
 }
 
-/* PROJECTS */
+/* SECTION INTRO */
 
-.projects-section {
-  border-top: 1px solid rgba(127, 123, 255, 0.18);
-}
-
-.projects-section .section-header {
+.projects-section .section-header,
+.about-section .section-header {
   max-width: 850px;
   margin-bottom: 3.5rem;
 }
 
-.projects-section .section-label {
+.projects-section .section-label,
+.about-section .section-label {
   font-family: "Courier New", monospace;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
@@ -504,16 +502,25 @@ a {
   margin-bottom: 1.25rem;
 }
 
-.projects-section .section-header h2 {
+.projects-section .section-header h2,
+.about-section .section-header h2 {
   font-size: clamp(2.8rem, 5vw, 5rem);
   line-height: 1;
   letter-spacing: -0.055em;
   margin-bottom: 1.3rem;
 }
 
-.projects-section .section-header > p:last-child {
+.projects-section .section-header > p:last-child,
+.about-section .section-header > p:last-child {
   max-width: 590px;
 }
+
+.projects-section,
+.about-section {
+  border-top: 1px solid rgba(127, 123, 255, 0.18);
+}
+
+/* PROJECTS */
 
 .projects-grid {
   display: grid;
@@ -651,59 +658,76 @@ a {
 
 .about-container {
   display: grid;
-
-  grid-template-columns: 2fr 1fr;
-
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.85fr);
+  align-items: start;
+  gap: clamp(2.5rem, 6vw, 6rem);
 }
 
-.about-card,
-.side-card {
-  padding: 2rem;
-
-  border-radius: 20px;
-
-  background: var(--surface);
-
-  border: 1px solid var(--border);
+.about-story {
+  max-width: 740px;
+  padding-left: clamp(1rem, 2vw, 2rem);
+  border-left: 1px solid rgba(127, 123, 255, 0.35);
 }
 
-.about-card h3 {
-  font-size: 2rem;
-
+.about-story h3 {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
   margin-bottom: 1.5rem;
 }
 
-.about-card h3 span {
+.about-story h3 span {
   color: var(--purple);
 }
 
-.about-card p {
+.about-story p {
   color: #d1d5db;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
 
-  line-height: 1.9;
-
-  margin-bottom: 1.5rem;
+.about-story p:first-of-type {
+  color: #e6e9f2;
 }
 
 .about-side {
-  display: flex;
-  flex-direction: column;
-
-  gap: 1.5rem;
+  padding: 1.6rem;
+  background: #101727;
+  border: 1px solid rgba(127, 123, 255, 0.22);
+  border-radius: 4px;
 }
 
-.side-card h4 {
+.about-side h3 {
   color: var(--purple);
-
+  font-family: "Courier New", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   margin-bottom: 1rem;
-
-  text-shadow:
-  0 0 8px rgba(108, 99, 255, 0.30);
 }
 
-.side-card p {
-  color: #d1d5db;
+.about-side dl > div {
+  padding: 1rem 0;
+  border-top: 1px solid rgba(127, 123, 255, 0.18);
+}
+
+.about-side dl > div:last-child {
+  padding-bottom: 0;
+}
+
+.about-side dt {
+  color: var(--text-muted);
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.about-side dd {
+  color: var(--text);
+  line-height: 1.5;
 }
 
 /* APOLLO */
@@ -713,54 +737,61 @@ a {
   right: 28px;
   bottom: 28px;
   z-index: 1000;
-
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 12px;
-
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
   cursor: pointer;
 }
 
-.apollo-img {
-  width: 95px;
-  height: auto;
+.apollo-bot:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 5px;
+}
 
-  filter: drop-shadow(0 0 14px rgba(108, 99, 255, 0.35));
+.apollo-img {
+  width: 90px;
+  height: auto;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.3));
 }
 
 .apollo-speech {
+  display: block;
   max-width: 220px;
-
   padding: 12px 14px;
-
-  background: #101522;
+  background: #101727;
   color: #d1d5db;
-
-  border: 2px solid rgba(127, 123, 255, 0.6);
-  border-radius: 8px;
-
+  border: 1px solid rgba(127, 123, 255, 0.5);
+  border-radius: 4px;
   font-size: 0.85rem;
-  line-height: 1.4;
-
-  box-shadow: 0 0 18px rgba(108, 99, 255, 0.2);
-
+  line-height: 1.45;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
   position: relative;
+}
+
+.apollo-label {
+  display: block;
+  color: var(--purple);
+  font-family: "Courier New", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
 }
 
 .apollo-speech::after {
   content: "";
-
   position: absolute;
-  right: -10px;
-  top: 22px;
-
-  width: 14px;
-  height: 14px;
-
-  background: #101522;
-
-  border-right: 2px solid rgba(127, 123, 255, 0.6);
-  border-bottom: 2px solid rgba(127, 123, 255, 0.6);
-
+  right: -6px;
+  bottom: 22px;
+  width: 10px;
+  height: 10px;
+  background: #101727;
+  border-right: 1px solid rgba(127, 123, 255, 0.5);
+  border-bottom: 1px solid rgba(127, 123, 255, 0.5);
   transform: rotate(-45deg);
 }

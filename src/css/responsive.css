@@ -27,11 +27,16 @@
 @media (max-width: 900px) {
   .about-container {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .project-card {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  .about-side {
+    max-width: 520px;
   }
 }
 
@@ -119,7 +124,8 @@
     font-size: 2rem;
   }
 
-  .projects-section .section-header h2 {
+  .projects-section .section-header h2,
+  .about-section .section-header h2 {
     font-size: clamp(2.4rem, 8vw, 3.5rem);
   }
 
@@ -127,13 +133,20 @@
     padding-top: 1.5rem;
   }
 
-  .about-card,
-  .side-card {
-    padding: 1.5rem;
+  .about-story {
+    padding-left: 1rem;
   }
 
-  .about-card h3 {
-    font-size: 1.5rem;
+  .about-story h3 {
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+  }
+
+  .about-story p {
+    font-size: 1rem;
+  }
+
+  .about-side {
+    padding: 1.3rem;
   }
 
   .apollo-bot {
@@ -146,7 +159,7 @@
   }
 
   .apollo-speech {
-    max-width: 170px;
+    max-width: min(170px, calc(100vw - 110px));
     font-size: 0.75rem;
   }
 }
