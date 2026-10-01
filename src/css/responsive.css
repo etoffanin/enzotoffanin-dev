@@ -7,15 +7,6 @@
     gap: 3rem;
   }
 
-  .hero-actions {
-    justify-content: flex-start;
-  }
-
-  .mini-terminal {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   .hero-side {
     width: 100%;
     margin-top: 0;
@@ -35,6 +26,10 @@
     gap: 1.5rem;
   }
 
+  .project-image {
+    max-width: 740px;
+  }
+
   .about-side {
     max-width: 520px;
   }
@@ -43,8 +38,8 @@
 /* Até 768px */
 
 @media (max-width: 768px) {
-  .social-links {
-    justify-content: flex-start;
+  html {
+    scroll-padding-top: 70px;
   }
 
   .header {
@@ -56,14 +51,55 @@
     font-size: 1.15rem;
   }
 
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(127, 123, 255, 0.45);
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+  }
+
   .nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 6% 1rem;
+    background: #070b14;
+    border-bottom: 1px solid rgba(127, 123, 255, 0.3);
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav a {
+    min-height: 48px;
+    align-items: center;
+    padding: 0.5rem 0;
   }
 
   .hero {
     min-height: auto;
-    padding: 110px 6% 50px;
-    gap: 3rem;
+    padding: 108px 6% 64px;
+    gap: 2.5rem;
   }
 
   .hero-content {
@@ -83,18 +119,23 @@
     font-size: 1.15rem;
   }
 
-  .hero p {
-    max-width: 340px;
+  .social-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
   }
 
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
+  .social-links a {
+    width: auto;
+    min-width: 44px;
+    height: 44px;
+    gap: 0.4rem;
+    padding: 0 0.1rem;
   }
 
-  .btn {
-    width: 100%;
-    text-align: center;
+  .social-links a span {
+    display: inline;
+    font-size: 0.75rem;
   }
 
   .mini-terminal {
@@ -118,10 +159,6 @@
   .projects-section,
   .about-section {
     padding: 60px 6%;
-  }
-
-  .section-header h2 {
-    font-size: 2rem;
   }
 
   .projects-section .section-header h2,
@@ -150,16 +187,112 @@
   }
 
   .apollo-bot {
-    right: 16px;
-    bottom: 16px;
+    position: static;
+    width: fit-content;
+    max-width: 88%;
+    margin: 1.5rem 6% 2rem auto;
   }
 
   .apollo-img {
     width: 70px;
+    flex: 0 0 70px;
   }
 
   .apollo-speech {
-    max-width: min(170px, calc(100vw - 110px));
+    min-width: 0;
+    max-width: 220px;
+    overflow-wrap: anywhere;
     font-size: 0.75rem;
+  }
+}
+
+/* Até 480px */
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding-top: 100px;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    padding-left: 0.85rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 10vw, 3.4rem);
+  }
+
+  .hero h2 {
+    font-size: 1.05rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .terminal-line {
+    font-size: 0.78rem;
+  }
+
+  .code-window pre {
+    padding: 14px;
+  }
+
+  .code-window code {
+    font-size: 0.73rem;
+  }
+
+  .projects-section,
+  .about-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .projects-section .section-header h2,
+  .about-section .section-header h2 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .projects-section .section-header,
+  .about-section .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .project-card {
+    gap: 1.25rem;
+  }
+
+  .project-image {
+    padding: 8px;
+  }
+
+  .project-content h3 {
+    font-size: 2rem;
+  }
+
+  .about-story h3 {
+    font-size: 1.7rem;
+  }
+
+  .apollo-bot {
+    gap: 8px;
+  }
+
+  .apollo-img {
+    width: 58px;
+    flex-basis: 58px;
+  }
+
+  .apollo-speech {
+    padding: 10px 12px;
   }
 }

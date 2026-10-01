@@ -16,6 +16,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -132,6 +133,10 @@ a {
 
 /* NAV */
 
+.nav-toggle {
+  display: none;
+}
+
 .nav {
   display: flex;
   gap: clamp(1.5rem, 3vw, 3rem);
@@ -158,6 +163,7 @@ a {
 }
 
 .logo:focus-visible,
+.nav-toggle:focus-visible,
 .nav a:focus-visible,
 .hero a:focus-visible {
   outline: 2px solid var(--purple);
@@ -292,6 +298,10 @@ a {
 
 .social-links a:hover {
   color: var(--purple);
+}
+
+.social-links a span {
+  display: none;
 }
 
 /* MINI TERMINAL */
