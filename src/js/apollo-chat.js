@@ -7,6 +7,8 @@ function initApolloChat() {
   const sendButton = document.getElementById("apolloChatSend");
   const messages = document.getElementById("apolloChatMessages");
   const status = document.getElementById("apolloChatStatus");
+  const maxHistoryMessages = 16;
+  const history = [];
   let sending = false;
 
   openButton.hidden = false;
@@ -63,7 +65,7 @@ function initApolloChat() {
       const response = await fetch("/api/apollo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, history }),
         signal: controller.signal
       });
 
@@ -77,7 +79,16 @@ function initApolloChat() {
         throw new Error("Apollo não retornou uma resposta.");
       }
 
-      appendMessage("Apollo", data.reply.trim());
+      const reply = data.reply.trim();
+      history.push(
+        { role: "user", text: message },
+        { role: "model", text: reply, thoughtSignatures: data.thoughtSignatures || [] }
+      );
+      if (history.length > maxHistoryMessages) {
+        history.splice(0, history.length - maxHistoryMessages);
+      }
+
+      appendMessage("Apollo", reply);
       status.textContent = "";
     } catch (error) {
       status.textContent = error.name === "AbortError"

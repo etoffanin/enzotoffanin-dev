@@ -43,7 +43,7 @@ As metas básicas de SEO estão em `index.html`. Uma URL canônica e uma imagem 
 
 ## Apollo AI
 
-`POST /api/apollo` recebe uma mensagem, valida seu conteúdo e faz uma única chamada à Interactions API usando o SDK oficial `@google/genai`. Retorna somente `{ "reply": "..." }`. O clique, as frases locais e as animações do Apollo continuam funcionando como antes.
+`POST /api/apollo` recebe `{ "message": "...", "history": [...] }`, valida a pergunta e o histórico e faz uma única chamada à Interactions API usando o SDK oficial `@google/genai`. Retorna `{ "reply": "...", "thoughtSignatures": [...] }`. O clique, as frases locais e as animações do Apollo continuam funcionando como antes.
 
 ### Painel de perguntas — etapa 2
 
@@ -53,11 +53,13 @@ As mensagens do visitante aparecem em balões roxos à direita; as do Apollo, em
 
 Falhas de conexão ou uma espera de mais de 30 segundos mostram uma mensagem de erro. A pergunta enviada permanece na conversa e não volta ao campo de digitação; qualquer novo rascunho é preservado. Mensagens são inseridas como texto, sem interpretar HTML.
 
-As perguntas e respostas ficam visíveis enquanto a página estiver aberta, inclusive depois de fechar e reabrir o painel. O histórico não é salvo no navegador nem enviado ao backend: cada pergunta continua sendo uma interação independente, sem memória de conversa. Recarregar a página limpa o painel.
+As perguntas e respostas ficam visíveis enquanto a página estiver aberta, inclusive depois de fechar e reabrir o painel. Para contexto, o JavaScript mantém em memória as últimas 16 mensagens de trocas concluídas (8 perguntas e respostas) e envia essa janela junto da nova pergunta. Cada entrada contém `role: "user"` ou `role: "model"` e `text`. A pergunta atual é enviada uma única vez, fora de `history`. Falhas, avisos, loading e a saudação inicial da interface não entram no histórico. Recarregar a página limpa a conversa; não há `sessionStorage` ou `localStorage`.
+
+O backend converte as mensagens para os passos `user_input` e `model_output` da Interactions API. As assinaturas opacas de raciocínio retornadas pelo Gemini são preservadas em `thoughtSignatures` junto da resposta correspondente, conforme exigido pela API. Elas não são exibidas nem interpretadas pela interface; resumos de raciocínio não são solicitados ou enviados como mensagens. O servidor valida quantidade, ordem dos papéis e tamanho dos textos e metadados antes de consultar o Gemini.
 
 O modelo fica na constante `APOLLO_MODEL` em `api/apollo.js`, inicialmente `gemini-3.5-flash-lite`. A constante `APOLLO_INSTRUCTIONS` define a personalidade e o contexto de Enzo. Os projetos são carregados diretamente de `src/data/projects.json`, sem copiar suas descrições manualmente. Alterações no JSON passam a fazer parte do contexto após reiniciar o ambiente local ou publicar uma nova versão.
 
-A chamada pede respostas curtas e limita a saída a 300 tokens. Não envia ferramentas nem `previous_interaction_id`, e usa `store: false` para não armazenar a interação como histórico na Interactions API. Campos adicionais enviados pelo cliente são ignorados: apenas `message` é utilizado.
+A chamada pede uma ou duas frases por padrão e limita a saída a 300 tokens. Não envia ferramentas nem `previous_interaction_id`, e usa `store: false` com o histórico recente em cada chamada. O prompt de sistema é enviado uma única vez por requisição, separado da conversa. O visitante não pode escolher modelo, prompt, ferramentas ou configuração de geração; esses campos continuam definidos pelo servidor.
 
 ### Configurar localmente
 
@@ -106,6 +108,7 @@ Em produção, substitua `http://localhost:3000` pelo endereço do portfólio. U
 | Mensagem vazia após `trim()` | HTTP 400 |
 | Mais de 500 caracteres após `trim()` | HTTP 400 |
 | JSON malformado | HTTP 400 |
+| Histórico inválido, mais de 16 mensagens ou papéis fora de ordem | HTTP 400 |
 | Método diferente de POST | HTTP 405, com `Allow: POST` |
 | Chave ausente, falha da API, interação não concluída ou resposta sem texto | HTTP 500, com `{ "error": "Apollo ficou offline por alguns instantes." }` |
 
