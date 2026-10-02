@@ -10,7 +10,12 @@ function initApolloChat() {
   let sending = false;
 
   openButton.hidden = false;
-  openButton.addEventListener("click", () => dialog.showModal());
+  openButton.addEventListener("click", () => {
+    dialog.showModal();
+    if (messages.childElementCount === 1) {
+      animateMessage(messages.firstElementChild);
+    }
+  });
   closeButton.addEventListener("click", () => dialog.close());
   dialog.addEventListener("close", () => {
     const focusTarget = openButton.getClientRects().length
@@ -91,11 +96,6 @@ function initApolloChat() {
     message.className = author === "Você"
       ? "apollo-chat-message apollo-chat-message-user"
       : "apollo-chat-message apollo-chat-message-apollo";
-    message.classList.add("is-entering");
-    message.addEventListener("animationend", () => {
-      message.classList.remove("is-entering");
-    }, { once: true });
-
     const label = document.createElement("strong");
     label.textContent = author;
     const content = document.createElement("span");
@@ -103,6 +103,14 @@ function initApolloChat() {
 
     message.append(label, content);
     messages.appendChild(message);
+    animateMessage(message);
     messages.scrollTop = messages.scrollHeight;
+  }
+
+  function animateMessage(message) {
+    message.classList.add("is-entering");
+    message.addEventListener("animationend", () => {
+      message.classList.remove("is-entering");
+    }, { once: true });
   }
 }

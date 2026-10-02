@@ -80,7 +80,7 @@
 /* APOLLO */
 
 .apollo-chat-message.is-entering {
-  animation: apolloMessagePop 0.3s ease-out;
+  animation: apolloMessagePop 0.45s ease-out;
   transform-origin: bottom left;
 }
 
@@ -91,12 +91,16 @@
 @keyframes apolloMessagePop {
   0% {
     opacity: 0;
-    transform: translateY(10px) scale(0.9);
+    transform: translateY(18px) scale(0.82);
   }
 
-  70% {
+  65% {
     opacity: 1;
     transform: translateY(0) scale(1.02);
+  }
+
+  82% {
+    transform: translateY(0) scale(0.99);
   }
 
   100% {
