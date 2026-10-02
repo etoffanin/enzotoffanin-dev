@@ -1,0 +1,10 @@
+{
+  "name": "enzotoffanin-portfolio",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@google/genai": "^2.26.0"
+  }
+}
