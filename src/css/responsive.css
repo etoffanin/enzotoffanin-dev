@@ -80,6 +80,7 @@
     right: 0;
     left: 0;
     flex-direction: column;
+    align-items: stretch;
     gap: 0;
     padding: 0.5rem 6% 1rem;
     background: #070b14;
@@ -94,6 +95,11 @@
     min-height: 48px;
     align-items: center;
     padding: 0.5rem 0;
+  }
+
+  .apollo-chat-open {
+    align-self: flex-start;
+    margin-top: 8px;
   }
 
   .hero {
@@ -197,6 +203,12 @@
     margin: 1.5rem 6% 2rem auto;
   }
 
+  .apollo-chat {
+    inset: auto 12px 12px auto;
+    width: calc(100% - 24px);
+    height: min(560px, calc(100dvh - 24px));
+  }
+
   .apollo-img {
     width: 70px;
     flex: 0 0 70px;
@@ -208,6 +220,47 @@
     margin-bottom: 17px;
     overflow-wrap: anywhere;
     font-size: 0.75rem;
+  }
+}
+
+/* Painel do Apollo em telas baixas, como celular na horizontal */
+
+@media (max-height: 500px) {
+  .apollo-chat {
+    overflow-y: auto;
+  }
+
+  .apollo-chat-header {
+    padding: 10px 14px;
+  }
+
+  .apollo-chat-header img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .apollo-chat-description {
+    padding: 0 14px 8px;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .apollo-chat-messages {
+    padding: 10px 14px;
+  }
+
+  .apollo-chat-form {
+    padding: 10px 14px 8px;
+  }
+
+  .apollo-chat-form textarea {
+    height: 52px;
+    padding: 6px 10px;
+  }
+
+  .apollo-chat-status {
+    min-height: 1.4em;
+    margin-top: 4px;
   }
 }
 

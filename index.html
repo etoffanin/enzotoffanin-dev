@@ -65,6 +65,10 @@
       <a href="#home"><span aria-hidden="true"></span>Início</a>
       <a href="#projects"><span aria-hidden="true"></span>Projetos</a>
       <a href="#about"><span aria-hidden="true"></span>Sobre</a>
+      <button class="apollo-chat-open" id="apolloChatOpen" type="button" aria-label="Perguntar ao Apollo" aria-haspopup="dialog" aria-controls="apolloChat" hidden>
+        <img src="./assets/images/apollo.png" alt="" width="28" height="28" />
+        <span>Apollo AI</span>
+      </button>
     </nav>
   </header>
 
@@ -240,7 +244,7 @@
     class="apollo-bot"
     id="apolloBot"
     type="button"
-    aria-label="Conversar com Apollo"
+    aria-label="Ouvir uma frase do Apollo"
     aria-describedby="apolloMessage"
   >
     <span class="apollo-speech">
@@ -251,8 +255,33 @@
   </button>
   <span class="visually-hidden" id="apolloAnnouncement" role="status"></span>
 
+  <dialog class="apollo-chat" id="apolloChat" aria-labelledby="apolloChatTitle" aria-describedby="apolloChatDescription">
+    <header class="apollo-chat-header">
+      <img src="./assets/images/apollo.png" alt="" width="48" height="48" />
+      <div>
+        <p class="apollo-label">APOLLO / CONVERSA</p>
+        <h2 id="apolloChatTitle">Pode perguntar.</h2>
+      </div>
+      <button class="apollo-chat-close" id="apolloChatClose" type="button" aria-label="Fechar conversa com Apollo">×</button>
+    </header>
+    <p class="apollo-chat-description" id="apolloChatDescription">Enzo, projetos, tecnologias… eu conheço este cantinho.</p>
+    <div class="apollo-chat-messages" id="apolloChatMessages" role="log" aria-label="Perguntas e respostas" aria-live="polite" tabindex="0">
+      <p class="apollo-chat-message apollo-chat-message-apollo"><strong>Apollo</strong><span>Olá! Quer conhecer algum projeto do meu criador?</span></p>
+    </div>
+    <form class="apollo-chat-form" id="apolloChatForm" novalidate>
+      <label for="apolloChatInput">Sua pergunta</label>
+      <textarea id="apolloChatInput" name="message" rows="2" maxlength="500" aria-describedby="apolloChatHint" placeholder="O que é o Operion?" required autofocus></textarea>
+      <div class="apollo-chat-actions">
+        <small id="apolloChatHint">Até 500 caracteres. Enter envia.</small>
+        <button id="apolloChatSend" type="submit">Enviar</button>
+      </div>
+      <p class="apollo-chat-status" id="apolloChatStatus" role="status"></p>
+    </form>
+  </dialog>
+
   <script src="./src/js/projects.js"></script>
   <script src="./src/js/apollo.js"></script>
+  <script src="./src/js/apollo-chat.js"></script>
   <script src="./src/js/main.js"></script>
 </body>
 </html>

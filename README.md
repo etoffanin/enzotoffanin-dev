@@ -18,9 +18,10 @@ Depois, abra `http://localhost:8000`. Abrir o arquivo diretamente com `file://` 
 - `src/css/style.css`: visual e layout base.
 - `src/css/animations.css`: animações e transições.
 - `src/css/responsive.css`: ajustes para tablet e celular; carregado por último.
-- `src/js/main.js`: inicialização, menu mobile e entrada suave das seções.
+- `src/js/main.js`: inicialização, rolagem suave entre seções, menu mobile e entrada suave do conteúdo.
 - `src/js/projects.js` e `src/data/projects.json`: exibição e dados dos projetos.
 - `src/js/apollo.js` e `src/data/apollo-messages.json`: comportamento e falas do Apollo.
+- `src/js/apollo-chat.js`: painel de perguntas e comunicação com o backend do Apollo AI.
 - `api/apollo.js`: endpoint do Apollo AI, executado somente no servidor da Vercel.
 - `package.json` e `package-lock.json`: dependência do backend e versões instaladas.
 - `.env.example`: exemplo da variável de ambiente, sem chave real.
@@ -40,9 +41,19 @@ O frontend é estático e pode ser publicado na Vercel sem comando de build. Use
 
 As metas básicas de SEO estão em `index.html`. Uma URL canônica e uma imagem de compartilhamento podem ser adicionadas quando o endereço de produção e uma imagem adequada estiverem definidos.
 
-## Apollo AI — etapa 1
+## Apollo AI
 
-`POST /api/apollo` recebe uma mensagem, valida seu conteúdo e faz uma única chamada à Interactions API usando o SDK oficial `@google/genai`. Retorna somente `{ "reply": "..." }`. Esta etapa prepara o backend; o clique, as frases locais e as animações do Apollo continuam funcionando como antes.
+`POST /api/apollo` recebe uma mensagem, valida seu conteúdo e faz uma única chamada à Interactions API usando o SDK oficial `@google/genai`. Retorna somente `{ "reply": "..." }`. O clique, as frases locais e as animações do Apollo continuam funcionando como antes.
+
+### Painel de perguntas — etapa 2
+
+O botão **Apollo AI**, ao lado de **Sobre** no cabeçalho, abre o painel de conversa. No celular, ele aparece dentro do menu e fecha o menu ao abrir o painel. O visitante pode perguntar sobre Enzo e os projetos, enviar com Enter ou inserir uma quebra de linha com Shift+Enter. O painel também funciona no celular e pode ser fechado pelo botão ou pela tecla Escape; o foco retorna ao botão de abertura ou ao botão do menu mobile.
+
+As mensagens do visitante aparecem em balões roxos à direita; as do Apollo, em balões escuros à esquerda. Ao enviar, o campo é limpo imediatamente e continua disponível para escrever a próxima pergunta. Apenas o botão de envio fica desabilitado enquanto Apollo responde, para evitar envios duplicados. A resposta não apaga um novo rascunho.
+
+Falhas de conexão ou uma espera de mais de 30 segundos mostram uma mensagem de erro. A pergunta enviada permanece na conversa e não volta ao campo de digitação; qualquer novo rascunho é preservado. Mensagens são inseridas como texto, sem interpretar HTML.
+
+As perguntas e respostas ficam visíveis enquanto a página estiver aberta, inclusive depois de fechar e reabrir o painel. O histórico não é salvo no navegador nem enviado ao backend: cada pergunta continua sendo uma interação independente, sem memória de conversa. Recarregar a página limpa o painel.
 
 O modelo fica na constante `APOLLO_MODEL` em `api/apollo.js`, inicialmente `gemini-3.5-flash-lite`. A constante `APOLLO_INSTRUCTIONS` define a personalidade e o contexto de Enzo. Os projetos são carregados diretamente de `src/data/projects.json`, sem copiar suas descrições manualmente. Alterações no JSON passam a fazer parte do contexto após reiniciar o ambiente local ou publicar uma nova versão.
 
